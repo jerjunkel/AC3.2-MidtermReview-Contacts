@@ -13,6 +13,14 @@ We will be using their "Contacts" template to create a simple table of info that
 
 ![Full Artboard](./Images/Desktop\ Landscape.png)
 
+---
+### How do I even get started?
+
+A: Break down a task into its smaller parts, work to acheive those individual goals:
+
+![Breaking down a problem](./Images/task_breakdown_example.png)
+
+
 ### Individual Artboards
 
 1. Main 
