@@ -60,19 +60,6 @@ class User{
         return json
     }
     
-    static func toData(dict: [String:Any])->Data?{
-        var bodyData: Data? = Data()
-        
-        do{
-            let json = try JSONSerialization.data(withJSONObject: dict, options: [])
-            bodyData = json
-        }catch{
-            print(error.localizedDescription)
-        }
-        
-        return bodyData
-    }
-    
     static func makeUserObjs(from data: Data)->[User]{
         var users: [User] = []
         do{
@@ -87,8 +74,6 @@ class User{
         }catch{
             print(error.localizedDescription)
         }
-        
-        
         
         return users
     }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3hO-Ft-tcr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3hO-Ft-tcr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,7 +40,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Tj-Qn-lxx">
-                                            <rect key="frame" x="78" y="41" width="289" height="17"/>
+                                            <rect key="frame" x="78" y="68.5" width="289" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -49,14 +49,13 @@
                                     <constraints>
                                         <constraint firstItem="v2N-9q-mer" firstAttribute="top" secondItem="vUo-Nd-mLD" secondAttribute="topMargin" id="3xK-rz-ZdT"/>
                                         <constraint firstItem="v2N-9q-mer" firstAttribute="leading" secondItem="6Nd-C7-qsf" secondAttribute="trailing" constant="20" id="7zH-qv-7le"/>
+                                        <constraint firstItem="1Tj-Qn-lxx" firstAttribute="top" secondItem="v2N-9q-mer" secondAttribute="bottom" priority="250" constant="10" id="CYp-F9-Ijo"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="v2N-9q-mer" secondAttribute="trailing" id="Far-YO-NE1"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="1Tj-Qn-lxx" secondAttribute="trailing" id="Kg8-z7-64H"/>
                                         <constraint firstItem="6Nd-C7-qsf" firstAttribute="top" secondItem="vUo-Nd-mLD" secondAttribute="topMargin" id="T3r-1r-4qd"/>
                                         <constraint firstItem="6Nd-C7-qsf" firstAttribute="leading" secondItem="vUo-Nd-mLD" secondAttribute="leadingMargin" id="X0o-PF-xhb"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="6Nd-C7-qsf" secondAttribute="bottom" id="XR7-q6-7Jf"/>
-                                        <constraint firstItem="6Nd-C7-qsf" firstAttribute="centerY" secondItem="vUo-Nd-mLD" secondAttribute="centerY" id="dvk-4A-Cd0"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="1Tj-Qn-lxx" secondAttribute="bottom" constant="10" id="aDq-px-1AL"/>
                                         <constraint firstItem="1Tj-Qn-lxx" firstAttribute="leading" secondItem="6Nd-C7-qsf" secondAttribute="trailing" constant="20" id="hEm-RS-VGS"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="1Tj-Qn-lxx" secondAttribute="bottom" id="zgh-6E-pze"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -80,6 +79,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="KsP-JU-vKn">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                 </tableViewController>
@@ -90,7 +90,6 @@
         <!--Title-->
         <scene sceneID="1Bn-5p-CiF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rNf-BJ-Mji" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="XSw-Tq-2Xh" customClass="UserDetailViewController" customModule="FieldBook" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JOs-rc-cnq"/>
@@ -114,41 +113,37 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6Z-cU-e7a">
-                                <rect key="frame" x="146" y="137" width="213" height="21"/>
+                                <rect key="frame" x="146" y="141" width="213" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dJC-wl-mZc">
-                                <rect key="frame" x="146" y="115" width="213" height="17"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dJC-wl-mZc">
+                                <rect key="frame" x="146" y="115" width="213" height="21"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bQe-ta-a9x">
-                                <rect key="frame" x="146" y="158" width="213" height="17"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bQe-ta-a9x">
+                                <rect key="frame" x="146" y="162" width="213" height="21"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhS-gh-FlI">
-                                <rect key="frame" x="146" y="180" width="213" height="21"/>
+                                <rect key="frame" x="146" y="188" width="213" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OWL-vm-Oes">
-                                <rect key="frame" x="146" y="201" width="213" height="17"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OWL-vm-Oes">
+                                <rect key="frame" x="146" y="209" width="213" height="21"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovK-74-5UB">
-                                <rect key="frame" x="150" y="338" width="75" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="JVa-Vh-Wmu"/>
-                                    <constraint firstAttribute="height" constant="40" id="rQA-Nq-oFB"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovK-74-5UB">
+                                <rect key="frame" x="169" y="350" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="postNewUser:" destination="XSw-Tq-2Xh" eventType="touchUpInside" id="Xdq-Rm-fy4"/>
@@ -190,12 +185,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="userActionButton" destination="ovK-74-5UB" id="wzs-Hs-Edg"/>
                         <outlet property="userCompanyTextField" destination="bQe-ta-a9x" id="5V0-IM-hre"/>
                         <outlet property="userEmailTextField" destination="OWL-vm-Oes" id="rpV-K6-IhE"/>
                         <outlet property="userNameTextField" destination="dJC-wl-mZc" id="SKF-EO-SkD"/>
                         <outlet property="userPhoto" destination="F5K-bz-rda" id="NEB-aO-Vx1"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rNf-BJ-Mji" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3986" y="-293"/>
         </scene>
@@ -219,6 +216,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Rc9-n4-ITB"/>
+        <segue reference="Pdw-Y2-r6x"/>
     </inferredMetricsTieBreakers>
 </document>

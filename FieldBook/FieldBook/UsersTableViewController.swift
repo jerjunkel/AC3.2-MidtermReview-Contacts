@@ -21,7 +21,6 @@ class UsersTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -32,15 +31,12 @@ class UsersTableViewController: UITableViewController {
         return users.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "usersCell", for: indexPath) as! UserTableViewCell
         
         cell.user = users[indexPath.row]
-        
         return cell
     }
-    
     
     //MARK:- Pull to Refresh Utilities
     func handleRefresh(){
@@ -49,8 +45,10 @@ class UsersTableViewController: UITableViewController {
     }
     
     func fetchUsers(){
-        ApiRequestManager.manager.makeRequest(to: usersEndpoint) { (data) in
-            self.users = User.makeUserObjs(from: data)
+        ApiRequestManager.manager.makeRequest(to: usersEndpoint) { (data,_) in
+            if let data = data{
+                self.users = User.makeUserObjs(from: data)
+            }
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.refreshControl?.endRefreshing()
@@ -58,15 +56,12 @@ class UsersTableViewController: UITableViewController {
         }
     }
     
-    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
-        
         if let userVC = segue.destination as? UserDetailViewController {
             if segue.identifier == "showUserDetail"{
                 if let index = tableView.indexPathForSelectedRow{
