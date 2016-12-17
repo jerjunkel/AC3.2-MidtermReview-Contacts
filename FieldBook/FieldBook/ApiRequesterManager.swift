@@ -73,16 +73,16 @@ class ApiRequestManager{
             }.resume()
     }
     
-    func getImage(from url: String, completion: @escaping (UIImage)->()){
+    func getImage(from url: String, completion: @escaping (UIImage?)->()){
         guard let url: URL = URL(string: url) else { return }
-        var image: UIImage = UIImage()
+        var image: UIImage? = UIImage()
         session.dataTask(with: url) { (data:Data?, response:URLResponse?, error:Error?) in
             if error != nil{
                 print("Error ==> \(error?.localizedDescription)")
             }
             
             if let data = data{
-                image = UIImage(data: data)!
+                image = UIImage(data: data)
                 completion(image)
             }
             }.resume()

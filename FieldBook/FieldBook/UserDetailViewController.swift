@@ -10,7 +10,7 @@ import UIKit
 
 class UserDetailViewController: UIViewController,UITextFieldDelegate{
     
-    enum UserViewState{
+    enum UserViewState:String{
         case update, add, delete
     }
     
@@ -18,15 +18,18 @@ class UserDetailViewController: UIViewController,UITextFieldDelegate{
     var isEnabled: Bool = false
     var userState: UserViewState? {
         didSet{
-            userActionButton.titleLabel?.text = actionButtonText
-            userActionButton.setNeedsDisplay()
+            userActionButton.setTitle(actionButtonText, for: .normal)
         }
     }
     
+    //Sets the button title
     var actionButtonText: String{
         switch userState!{
         case .add: return "Add User"
-        case .delete: return "Remove User"
+        case .delete:
+//            userActionButton.titleLabel?.textColor = .red
+            userActionButton.setTitleColor(.red, for: .normal)
+            return "Remove User"
         case .update: return "Update User"
         }
     }
@@ -39,7 +42,8 @@ class UserDetailViewController: UIViewController,UITextFieldDelegate{
         
         let body = ["name":userName!.trimmingCharacters(in: CharacterSet.whitespaces),
                     "company":userCompany!.trimmingCharacters(in: CharacterSet.whitespaces),
-                    "email":userEmail!.trimmingCharacters(in: CharacterSet.whitespaces)]
+                    "email":userEmail!.trimmingCharacters(in: CharacterSet.whitespaces),
+                    "picture_id":getRandomUserImage()]
         return body
     }
     
@@ -110,6 +114,8 @@ class UserDetailViewController: UIViewController,UITextFieldDelegate{
         ApiRequestManager.manager.makeRequest(to: usersEndpoint, with: .post, body: jsonbody) { (data) in
             print("Post made")
         }
+        self.showAlert(with: .add)
+        
     }
     
     func updateUser(){
@@ -117,12 +123,27 @@ class UserDetailViewController: UIViewController,UITextFieldDelegate{
         ApiRequestManager.manager.makeRequest(to: usersEndpoint + String(user.userId), with: .patch, body: jsonbody) { (data) in
             print("Update made")
         }
+        self.showAlert(with: .update)
     }
     
     func removeUser(){
         ApiRequestManager.manager.makeRequest(to: usersEndpoint + String(user.userId), with: .delete) { (_) in
             print("User Deleted")
         }
+        self.showAlert(with: .delete)
+    }
+    
+    func showAlert(with message: UserViewState){
+        let alertController = UIAlertController(title: "Action", message: "User was \(message.rawValue)ed", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func getRandomUserImage()->String{
+        let picNumber: Int = Int(arc4random_uniform(100))
+        let gender: String = ["men","women"][Int(arc4random_uniform(2))]
+        return "https://randomuser.me/api/portraits/\(gender)/\(picNumber).jpg"
     }
     //
     //    func setActionButtonText()-> String{
